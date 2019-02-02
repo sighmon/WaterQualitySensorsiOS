@@ -11,11 +11,10 @@
 
 @interface MainViewController () {
     
-    float _temperature;
-    float _humidity;
-    float _particles;
-    float _carbonMonoxide;
-    char _heaterOn;
+    float _electricalConductivity;
+    float _totalDissolvedSolids;
+    float _salinity;
+    float _specificGravity;
     
     int _deviceid;
     NSDate *_timestamp;
@@ -60,12 +59,6 @@
                                                  name:UIApplicationWillTerminateNotification
                                                object:nil];
     
-    // Setup heater view
-    heaterDot.layer.cornerRadius = heaterDot.frame.size.width/2;
-    heaterDot.layer.borderColor = DOT_COLOR_OFF.CGColor;
-    heaterDot.layer.borderWidth = 2.0;
-    defaultTextColor = particlesLabel.textColor;
-    
     // Setup user defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL useTestServer = [defaults boolForKey:kTestSwitchPreference];
@@ -100,13 +93,11 @@ NSTimer *rssiTimer;
     
     lblRSSI.text = @"---";
     [rssiProgressView setProgress:0.1 animated:YES];
-    carbonMonoxideLabel.text = @"0";
-    particlesLabel.text = @"0";
-    temperatureLabel.text = @"0°";
-    humidityLabel.text = @"0%";
+    electricalConductivityLabel.text = @"0";
+    totalDissolvedSolidsLabel.text = @"0";
+    salinityLabel.text = @"0";
+    specificGravityLabel.text = @"0";
 //    sensorValues.text = @"t: --- h: --- s: --- *---*";
-    [self updateTextColorWithLabel:carbonMonoxideLabel andLabelMaxValue:CARBON_MONOXIDE_MAX andData:0];
-    [self updateTextColorWithLabel:particlesLabel andLabelMaxValue:PARTICLES_MAX andData:0];
     
     [rssiTimer invalidate];
 }
@@ -135,7 +126,7 @@ NSTimer *rssiTimer;
     [ble readRSSI];
 }
 
-// When disconnected, this will be called
+// When connected, this will be called
 -(void) bleDidConnect
 {
     NSLog(@"->Connected");
@@ -149,24 +140,25 @@ NSTimer *rssiTimer;
 // When data is comming, this will be called
 -(void) bleDidReceiveData:(unsigned char *)data length:(int)length
 {
-    // Decode struct data
+    // Decode data in format:
+    // 78.23,42,0.00,1.000
+    // EC,TDS,SAL,GRAV
+    NSString *dataString = [NSString stringWithUTF8String:(char *)data];
+    NSArray *sensorReadings = [dataString componentsSeparatedByString:@","];
     
-    struct SENSOR_READINGS {
-        float temperature;
-        float humidity;
-        float particles;
-        float carbonMonoxide;
-        char heaterOn;
-    };
-    
-    struct SENSOR_READINGS sensorReadings;
-    memcpy(&sensorReadings, data, sizeof(struct SENSOR_READINGS));
-    
-    _temperature = sensorReadings.temperature;
-    _humidity = sensorReadings.humidity;
-    _particles = sensorReadings.particles;
-    _carbonMonoxide = sensorReadings.carbonMonoxide;
-    _heaterOn = sensorReadings.heaterOn;
+    if (sensorReadings.count == 4) {
+        _electricalConductivity = [sensorReadings[0] floatValue];
+        _totalDissolvedSolids = [sensorReadings[1] floatValue];
+        _salinity = [sensorReadings[2] floatValue];
+        _specificGravity = [sensorReadings[3] floatValue];
+    } else {
+        // Something went wrong with the data format
+        NSLog(@"ERROR: data format error. Data: %s", data);
+        _electricalConductivity = 0;
+        _totalDissolvedSolids = 0;
+        _salinity = 0;
+        _specificGravity = 0;
+    }
     
     _deviceid = DEVICE_ID;
     _timestamp = [NSDate date];
@@ -175,23 +167,14 @@ NSTimer *rssiTimer;
     // http://www.appcoda.com/ios-charts-api-tutorial/
     // https://github.com/danielgindi/ios-charts
     
-    // Catch temperature sensor reading errors, it defaults to -999 which isn't ideal.
-    if (_temperature < -100) {
-        _temperature = 0;
-    }
-    if (_humidity < -100) {
-        _humidity = 0;
-    }
-    
     [self updateDisplay];
     
     NSLog(@"Length: %d, Raw data: %s", length, data);
-    NSLog(@"Data: %@", [NSString stringWithFormat:@"t: %.01f h: %.01f p: %.01f %@: %.01f",
-                        _temperature,
-                        _humidity,
-                        _particles,
-                        _heaterOn ? @"C" : @"c",
-                        _carbonMonoxide]);
+    NSLog(@"Data: %@", [NSString stringWithFormat:@"ec: %.01f tds: %.01f sal: %.01f sg: %.01f",
+                        _electricalConductivity,
+                        _totalDissolvedSolids,
+                        _salinity,
+                        _specificGravity]);
     
     // Save to core data if the data size is 17 (Arduino) or 20 (Redbear Duo)
     if ([self isLastDataValid] && length >= 17 && length <= 20) {
@@ -203,24 +186,13 @@ NSTimer *rssiTimer;
 
 - (void)updateDisplay
 {
-    carbonMonoxideLabel.text = [NSString stringWithFormat:@"%d", (int)roundf(_carbonMonoxide)];
-    [self updateTextColorWithLabel:carbonMonoxideLabel andLabelMaxValue:CARBON_MONOXIDE_MAX andData:_carbonMonoxide];
+    electricalConductivityLabel.text = [NSString stringWithFormat:@"%.01f", _electricalConductivity];
     
-    particlesLabel.text = [NSString stringWithFormat:@"%d", (int)roundf(_particles)];
-    [self updateTextColorWithLabel:particlesLabel andLabelMaxValue:PARTICLES_MAX andData:_particles];
+    totalDissolvedSolidsLabel.text = [NSString stringWithFormat:@"%.01f", _totalDissolvedSolids];
     
-    temperatureLabel.text = [NSString stringWithFormat:@"%.01f°", _temperature];
+    salinityLabel.text = [NSString stringWithFormat:@"%.01f", _salinity];
     
-    humidityLabel.text = [NSString stringWithFormat:@"%.01f%%", _humidity];
-    
-    UIColor *heaterDotColour = [UIColor whiteColor];
-    if (_heaterOn) {
-        heaterDotColour = DOT_COLOR_ON;
-        heaterDot.layer.borderColor = DOT_COLOR_ON.CGColor;
-    } else {
-        heaterDot.layer.borderColor = DOT_COLOR_OFF.CGColor;
-    }
-    heaterDot.backgroundColor = heaterDotColour;
+    specificGravityLabel.text = [NSString stringWithFormat:@"%.01f", _specificGravity];
 }
 
 - (void)updateTextColorWithLabel: (UILabel *)label andLabelMaxValue: (float)maxValue andData: (float)dataValue
@@ -288,7 +260,7 @@ NSTimer *rssiTimer;
         NSLog(@"Loading results...");
         // Loop thorugh the saved data and write to a CSV
         NSMutableArray *loadedData = [[NSMutableArray alloc] init];
-        [loadedData addObject: @"deviceid, timestamp, latitude, longitude, humidity, temperature, particles, carbonmonoxide, heaterOn" ];
+        [loadedData addObject: @"deviceid, timestamp, latitude, longitude, electrical_conductivity, total_dissolved_solids, salinity, specific_gravity" ];
 
         for (BIKSensorDataMO *result in results) {
             
@@ -300,16 +272,15 @@ NSTimer *rssiTimer;
             NSString *iso8601String = [dateFormatter stringFromDate:result.timestamp];
             
             // Add it to the array of CoreData
-            [loadedData addObject:[NSString stringWithFormat:@"%hd, %@, %f, %f, %f, %f, %f, %f, %hhd",
+            [loadedData addObject:[NSString stringWithFormat:@"%hd, %@, %f, %f, %f, %f, %f, %f",
                                    result.deviceid,
                                    iso8601String,
                                    result.latitude,
                                    result.longitude,
-                                   result.humidity,
-                                   result.temperature,
-                                   result.particles,
-                                   result.carbonmonoxide,
-                                   (char)result.heaterOn]];
+                                   result.electrical_conductivity,
+                                   result.total_dissolved_solids,
+                                   result.salinity,
+                                   result.specific_gravity]];
         }
         
         if (loadedData.count > 1) {
@@ -381,11 +352,10 @@ NSTimer *rssiTimer;
     sensorDataManagedObject.timestamp = _timestamp;
     sensorDataManagedObject.latitude = _latitude;
     sensorDataManagedObject.longitude = _longitude;
-    sensorDataManagedObject.humidity = _humidity;
-    sensorDataManagedObject.temperature = _temperature;
-    sensorDataManagedObject.particles = _particles;
-    sensorDataManagedObject.carbonmonoxide = _carbonMonoxide;
-    sensorDataManagedObject.heaterOn = _heaterOn;
+    sensorDataManagedObject.electrical_conductivity = _electricalConductivity;
+    sensorDataManagedObject.total_dissolved_solids = _totalDissolvedSolids;
+    sensorDataManagedObject.salinity = _salinity;
+    sensorDataManagedObject.specific_gravity = _specificGravity;
     
     NSError *error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {
@@ -402,12 +372,11 @@ NSTimer *rssiTimer;
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     NSData *postData = [[NSString stringWithFormat:
-                         @"reading[temperature]=%f&reading[humidity]=%f&reading[particles]=%f&reading[carbon_monoxide]=%f&reading[heater_on]=%c&reading[device_id]=%d&reading[timestamp]=%@&reading[latitude]=%f&reading[longitude]=%f",
-                         _temperature,
-                         _humidity,
-                         _particles,
-                         _carbonMonoxide,
-                         _heaterOn,
+                         @"reading[electrical_conductivity]=%f&reading[total_dissolved_solids]=%f&reading[salinity]=%f&reading[specific_gravity]=%f&reading[device_id]=%d&reading[timestamp]=%@&reading[latitude]=%f&reading[longitude]=%f",
+                         _electricalConductivity,
+                         _totalDissolvedSolids,
+                         _salinity,
+                         _specificGravity,
                          _deviceid,
                          _timestamp,
                          _latitude,
@@ -440,10 +409,10 @@ NSTimer *rssiTimer;
 
 - (bool)isLastDataValid
 {
-    if (_humidity != 0 &&
-        _temperature != 0 &&
-        _particles != 0 &&
-        _carbonMonoxide != 0 &&
+    if (_totalDissolvedSolids != 0 &&
+        _electricalConductivity != 0 &&
+//        _salinity != 0 &&
+        _specificGravity != 0 &&
         _deviceid != 0 &&
         _timestamp &&
         _latitude != 0 &&

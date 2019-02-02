@@ -15,15 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BIKSensorDataMO (CoreDataProperties)
 
-@property (nonatomic) float carbonmonoxide;
 @property (nonatomic) int16_t deviceid;
-@property (nonatomic) BOOL heaterOn;
-@property (nonatomic) float humidity;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (nonatomic) float particles;
-@property (nonatomic) float temperature;
 @property (nonatomic) NSDate *timestamp;
+@property (nonatomic) float electrical_conductivity;
+@property (nonatomic) float total_dissolved_solids;
+@property (nonatomic) float salinity;
+@property (nonatomic) float specific_gravity;
 
 @end
 

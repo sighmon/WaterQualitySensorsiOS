@@ -40,28 +40,28 @@
 		056B7D561BC2313D00292D37 /* SensorData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SensorData.xcdatamodel; sourceTree = "<group>"; };
 		056B7D581BC23E4100292D37 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		056B7D5D1BC25B6700292D37 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		056B7D621BC2731C00292D37 /* BIKSensorDataMO+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BIKSensorDataMO+CoreDataProperties.h"; path = "BikeAirQualitySensorsiOS/BIKSensorDataMO+CoreDataProperties.h"; sourceTree = "<group>"; };
-		056B7D631BC2731C00292D37 /* BIKSensorDataMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BIKSensorDataMO+CoreDataProperties.m"; path = "BikeAirQualitySensorsiOS/BIKSensorDataMO+CoreDataProperties.m"; sourceTree = "<group>"; };
-		056B7D641BC2731C00292D37 /* BIKSensorDataMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BIKSensorDataMO.h; path = BikeAirQualitySensorsiOS/BIKSensorDataMO.h; sourceTree = "<group>"; };
-		056B7D651BC2731C00292D37 /* BIKSensorDataMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BIKSensorDataMO.m; path = BikeAirQualitySensorsiOS/BIKSensorDataMO.m; sourceTree = "<group>"; };
+		056B7D621BC2731C00292D37 /* BIKSensorDataMO+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BIKSensorDataMO+CoreDataProperties.h"; path = "WaterQualitySensorsiOS/BIKSensorDataMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		056B7D631BC2731C00292D37 /* BIKSensorDataMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BIKSensorDataMO+CoreDataProperties.m"; path = "WaterQualitySensorsiOS/BIKSensorDataMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		056B7D641BC2731C00292D37 /* BIKSensorDataMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BIKSensorDataMO.h; path = WaterQualitySensorsiOS/BIKSensorDataMO.h; sourceTree = "<group>"; };
+		056B7D651BC2731C00292D37 /* BIKSensorDataMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BIKSensorDataMO.m; path = WaterQualitySensorsiOS/BIKSensorDataMO.m; sourceTree = "<group>"; };
 		057F51271DE94435005E8D25 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		05D0469E1BD3DEED00391727 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		291C7BB21648AE9100403B08 /* BikeAirQualitySensorsiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAirQualitySensorsiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		291C7BB21648AE9100403B08 /* WaterQualitySensorsiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterQualitySensorsiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		291C7BB61648AE9100403B08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		291C7BB81648AE9100403B08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		291C7BBA1648AE9100403B08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		291C7BBE1648AE9100403B08 /* BikeAirQualitySensorsiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BikeAirQualitySensorsiOS-Info.plist"; sourceTree = "<group>"; };
+		291C7BBE1648AE9100403B08 /* WaterQualitySensorsiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WaterQualitySensorsiOS-Info.plist"; sourceTree = "<group>"; };
 		291C7BC01648AE9100403B08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		291C7BC21648AE9100403B08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		291C7BC41648AE9100403B08 /* BikeAirQualitySensorsiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BikeAirQualitySensorsiOS-Prefix.pch"; sourceTree = "<group>"; };
+		291C7BC41648AE9100403B08 /* WaterQualitySensorsiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaterQualitySensorsiOS-Prefix.pch"; sourceTree = "<group>"; };
 		291C7BC51648AE9100403B08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		291C7BC61648AE9100403B08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		291C7BC81648AE9100403B08 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		291C7BCA1648AE9100403B08 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		291C7BCC1648AE9100403B08 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2932F6801813C4230049385E /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLE.h; path = BikeAirQualitySensorsiOS/BLE/BLE.h; sourceTree = SOURCE_ROOT; };
-		2932F6811813C4230049385E /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLE.m; path = BikeAirQualitySensorsiOS/BLE/BLE.m; sourceTree = SOURCE_ROOT; };
-		2932F6821813C4230049385E /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDefines.h; path = BikeAirQualitySensorsiOS/BLE/BLEDefines.h; sourceTree = SOURCE_ROOT; };
+		2932F6801813C4230049385E /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLE.h; path = WaterQualitySensorsiOS/BLE/BLE.h; sourceTree = SOURCE_ROOT; };
+		2932F6811813C4230049385E /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLE.m; path = WaterQualitySensorsiOS/BLE/BLE.m; sourceTree = SOURCE_ROOT; };
+		2932F6821813C4230049385E /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDefines.h; path = WaterQualitySensorsiOS/BLE/BLEDefines.h; sourceTree = SOURCE_ROOT; };
 		2950A9C8164A8459005C150E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		2950A9C9164A8459005C150E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		298C8462164A0F000020AD9A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -92,7 +92,7 @@
 				056B7D631BC2731C00292D37 /* BIKSensorDataMO+CoreDataProperties.m */,
 				056B7D641BC2731C00292D37 /* BIKSensorDataMO.h */,
 				056B7D651BC2731C00292D37 /* BIKSensorDataMO.m */,
-				291C7BBC1648AE9100403B08 /* BikeAirQualitySensorsiOS */,
+				291C7BBC1648AE9100403B08 /* WaterQualitySensorsiOS */,
 				291C7BB51648AE9100403B08 /* Frameworks */,
 				291C7BB31648AE9100403B08 /* Products */,
 			);
@@ -101,7 +101,7 @@
 		291C7BB31648AE9100403B08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				291C7BB21648AE9100403B08 /* BikeAirQualitySensorsiOS.app */,
+				291C7BB21648AE9100403B08 /* WaterQualitySensorsiOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,7 +120,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		291C7BBC1648AE9100403B08 /* BikeAirQualitySensorsiOS */ = {
+		291C7BBC1648AE9100403B08 /* WaterQualitySensorsiOS */ = {
 			isa = PBXGroup;
 			children = (
 				057F51271DE94435005E8D25 /* Constants.h */,
@@ -136,16 +136,16 @@
 				053EE4F321B148E500EAB64B /* Launch Screen.storyboard */,
 				291C7BBD1648AE9100403B08 /* Supporting Files */,
 			);
-			path = BikeAirQualitySensorsiOS;
+			path = WaterQualitySensorsiOS;
 			sourceTree = "<group>";
 		};
 		291C7BBD1648AE9100403B08 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				291C7BBE1648AE9100403B08 /* BikeAirQualitySensorsiOS-Info.plist */,
+				291C7BBE1648AE9100403B08 /* WaterQualitySensorsiOS-Info.plist */,
 				291C7BBF1648AE9100403B08 /* InfoPlist.strings */,
 				291C7BC21648AE9100403B08 /* main.m */,
-				291C7BC41648AE9100403B08 /* BikeAirQualitySensorsiOS-Prefix.pch */,
+				291C7BC41648AE9100403B08 /* WaterQualitySensorsiOS-Prefix.pch */,
 				291C7BC81648AE9100403B08 /* Default.png */,
 				291C7BCA1648AE9100403B08 /* Default@2x.png */,
 				291C7BCC1648AE9100403B08 /* Default-568h@2x.png */,
@@ -161,15 +161,15 @@
 				2932F6821813C4230049385E /* BLEDefines.h */,
 			);
 			name = BLE;
-			path = BikeAirQualitySensorsiOS/BLE;
+			path = WaterQualitySensorsiOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		291C7BB11648AE9100403B08 /* BikeAirQualitySensorsiOS */ = {
+		291C7BB11648AE9100403B08 /* WaterQualitySensorsiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 291C7BD61648AE9100403B08 /* Build configuration list for PBXNativeTarget "BikeAirQualitySensorsiOS" */;
+			buildConfigurationList = 291C7BD61648AE9100403B08 /* Build configuration list for PBXNativeTarget "WaterQualitySensorsiOS" */;
 			buildPhases = (
 				291C7BAE1648AE9100403B08 /* Sources */,
 				291C7BAF1648AE9100403B08 /* Frameworks */,
@@ -179,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = BikeAirQualitySensorsiOS;
+			name = WaterQualitySensorsiOS;
 			productName = BLEDemo;
-			productReference = 291C7BB21648AE9100403B08 /* BikeAirQualitySensorsiOS.app */;
+			productReference = 291C7BB21648AE9100403B08 /* WaterQualitySensorsiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +198,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 291C7BAC1648AE9100403B08 /* Build configuration list for PBXProject "BikeAirQualitySensorsiOS" */;
+			buildConfigurationList = 291C7BAC1648AE9100403B08 /* Build configuration list for PBXProject "WaterQualitySensorsiOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -211,7 +211,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				291C7BB11648AE9100403B08 /* BikeAirQualitySensorsiOS */,
+				291C7BB11648AE9100403B08 /* WaterQualitySensorsiOS */,
 			);
 		};
 /* End PBXProject section */
@@ -369,11 +369,11 @@
 				DEVELOPMENT_TEAM = 4P8S9W2NYL;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BikeAirQualitySensorsiOS/BikeAirQualitySensorsiOS-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/BikeAirQualitySensorsiOS/BikeAirQualitySensorsiOS-Info.plist";
+				GCC_PREFIX_HEADER = "WaterQualitySensorsiOS/WaterQualitySensorsiOS-Prefix.pch";
+				INFOPLIST_FILE = "WaterQualitySensorsiOS/WaterQualitySensorsiOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sighmon.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = BikeAirQualitySensorsiOS;
+				PRODUCT_NAME = WaterQualitySensorsiOS;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -387,11 +387,11 @@
 				DEVELOPMENT_TEAM = 4P8S9W2NYL;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BikeAirQualitySensorsiOS/BikeAirQualitySensorsiOS-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/BikeAirQualitySensorsiOS/BikeAirQualitySensorsiOS-Info.plist";
+				GCC_PREFIX_HEADER = "WaterQualitySensorsiOS/WaterQualitySensorsiOS-Prefix.pch";
+				INFOPLIST_FILE = "WaterQualitySensorsiOS/WaterQualitySensorsiOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sighmon.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = BikeAirQualitySensorsiOS;
+				PRODUCT_NAME = WaterQualitySensorsiOS;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -400,7 +400,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		291C7BAC1648AE9100403B08 /* Build configuration list for PBXProject "BikeAirQualitySensorsiOS" */ = {
+		291C7BAC1648AE9100403B08 /* Build configuration list for PBXProject "WaterQualitySensorsiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				291C7BD41648AE9100403B08 /* Debug */,
@@ -409,7 +409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		291C7BD61648AE9100403B08 /* Build configuration list for PBXNativeTarget "BikeAirQualitySensorsiOS" */ = {
+		291C7BD61648AE9100403B08 /* Build configuration list for PBXNativeTarget "WaterQualitySensorsiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				291C7BD71648AE9100403B08 /* Debug */,

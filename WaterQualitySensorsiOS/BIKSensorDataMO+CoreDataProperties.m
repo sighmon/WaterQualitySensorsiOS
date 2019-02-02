@@ -13,14 +13,13 @@
 
 @implementation BIKSensorDataMO (CoreDataProperties)
 
-@dynamic carbonmonoxide;
 @dynamic deviceid;
-@dynamic heaterOn;
-@dynamic humidity;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic particles;
-@dynamic temperature;
 @dynamic timestamp;
+@dynamic electrical_conductivity;
+@dynamic total_dissolved_solids;
+@dynamic salinity;
+@dynamic specific_gravity;
 
 @end
