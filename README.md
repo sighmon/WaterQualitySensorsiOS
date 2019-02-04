@@ -24,7 +24,3 @@ I'm using the [RedBear BLE Nano 2](https://redbear.cc/product/ble-nano-2.html) f
 ## iOS demo project
 
 This app is based on the [RedBear SimpleControls example project](https://github.com/RedBearLab/iOS/tree/master/Examples/SimpleControls_iOS).
-
-### Icon
-
-Based on the design from [Vadim Carazan](https://www.behance.net/gallery/68780443/Logo-Collection-III)
